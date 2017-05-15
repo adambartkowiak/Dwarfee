@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pl.adambartkowiak.dwarfee">
+
+    <application
+        android:name=".application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--ACTIVITIES-->
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".activity.BroadcasterDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <!--METADATA-->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="89eca111598766c7dde278a4577add0aa77f3a9f" />
+    </application>
+
+    <!--PERMISSIONS-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

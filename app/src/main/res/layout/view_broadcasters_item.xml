@@ -1,0 +1,48 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="BroadcasterItemBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="pl.adambartkowiak.dwarfee.viewmodel.BroadcasterItemViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/broadcastersItem"
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="@{(view) -> viewModel.onClickItem(view)}"
+            android:scaleType="centerCrop"
+            bind:srcUrl='@{viewModel.imageUrl}' />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/title"
+                style="@style/TextAppearance.AppCompat.Small.Inverse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/shape_rectangle_gradient"
+                android:padding="@dimen/micro_spacing"
+                android:text="@{viewModel.name}" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

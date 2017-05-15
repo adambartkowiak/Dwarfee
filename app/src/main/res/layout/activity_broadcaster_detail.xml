@@ -1,0 +1,71 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <!--Background Image-->
+    <RelativeLayout
+        android:id="@+id/content_header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="false"
+        app:layout_behavior="pl.adambartkowiak.dwarfee.utils.HeaderLayoutBehavior">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/brodcaster_detail_image_height"
+            android:layout_centerInParent="true"
+            android:fitsSystemWindows="false"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/indystarcraft" />
+
+    </RelativeLayout>
+
+    <!--Recycler View-->
+    <fragment
+        android:id="@+id/broadcasters_fragment"
+        android:name="pl.adambartkowiak.dwarfee.fragment.StreamFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="false" />
+
+    <!--app:layout_behavior="pl.adambartkowiak.dwarfee.utils.AppBarAndStatusBarBehavior"-->
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+
+    <!--Toolbar-->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_transition"
+        android:elevation="0dp"
+        android:fitsSystemWindows="false"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="0dp"
+        app:layout_behavior="pl.adambartkowiak.dwarfee.utils.AppBarAndStatusBarBehavior">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:fitsSystemWindows="false"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/toolbar_title"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/backgroundLight"
+                android:visibility="invisible" />
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+

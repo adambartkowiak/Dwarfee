@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Dwarfee</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!--Become Broadcaster-->
+    <string name="become_broadcaster_info">\tTo become a broadcaster, visit: dwarfee.com/becomebroadcaster (from PC or Mac) and fill necessary data like broadcaster name, description and avatar. \n\n\tBroadcaster Account is free up to 50 active subscribers after that you will be charged 1$ per month for ability to sends push notifications to your subscribers. </string>
+    <string name="settings_info">SETTINGS UNDER CONSTRUCTION</string>
+    <string name="calendar_info">\tYou can check events schedule and much more using calendar. Calendar will be available in next major release.</string>
+    <string name="broadcaster_detail_info">BROADCASTER PAGE INFO :))</string>
+</resources>

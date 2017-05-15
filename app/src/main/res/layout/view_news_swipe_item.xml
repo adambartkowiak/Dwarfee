@@ -1,0 +1,115 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="StreamItemBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="pl.adambartkowiak.dwarfee.viewmodel.StreamItemViewModel" />
+
+    </data>
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        bind:enableSwipe="@{viewModel.assignedTo}"
+        bind:hideSwipe="@{!viewModel.assignedTo}">
+
+        <!-- Bottom View Start-->
+        <FrameLayout
+            android:id="@+id/bottom_wrapper"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundGray">
+            <!--What you want to show-->
+            <android.support.v7.widget.AppCompatButton
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/blackSemitransparent"
+                android:onClick="@{() -> viewModel.onClickLeaveButton()}"
+                android:text="Leave Event" />
+        </FrameLayout>
+        <!-- Bottom View End-->
+
+        <!-- Surface View Start -->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundLight"
+            android:elevation="@dimen/small_spacing"
+            android:padding="@dimen/base_spacing">
+
+            <!--Avatar-->
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/newsImage"
+                android:layout_width="@dimen/list_image_size"
+                android:layout_height="@dimen/list_image_size"
+                android:layout_marginEnd="@dimen/base_spacing"
+                android:layout_marginRight="@dimen/base_spacing"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:onClick="@{(view) -> viewModel.onClickAvatar(view)}"/>
+
+            <!--Awarded-->
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/awarded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/small_spacing"
+                android:layout_marginRight="@dimen/small_spacing"
+                android:layout_toRightOf="@id/newsImage"
+                android:src="@drawable/ic_star_border_black_18dp"
+                android:visibility="@{viewModel.awarded ? View.VISIBLE : View.GONE}" />
+
+            <!--Title-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/title"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/awarded"
+                android:text="@{viewModel.title}" />
+
+            <!--Clock-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/clock"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@{viewModel.clock}" />
+
+            <!--In Calendar-->
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/inCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/title"
+                android:layout_marginLeft="@dimen/base_spacing"
+                android:alpha="@{viewModel.assignedTo ? 0.8f : 0.2f}"
+                android:onClick="@{() -> viewModel.onClickCalendarIcon()}"
+                android:src="@drawable/ic_event_black_24dp" />
+
+            <!--Description-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/description"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_toLeftOf="@id/inCalendar"
+                android:layout_toRightOf="@id/newsImage"
+                android:text="@{viewModel.description}" />
+
+        </RelativeLayout>
+        <!-- Surface View End -->
+    </com.daimajia.swipe.SwipeLayout>
+</layout>
